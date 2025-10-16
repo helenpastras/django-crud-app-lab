@@ -1,0 +1,18 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/cards/card-detail.css' %}" />
+{% endblock %} 
+{% block content %}
+<section class="card-container">
+  <div class="card-img">
+    <img src="{% static 'images/CardFun-Nemo.jpg' %}" alt="Nemo" />
+  </div>
+  <div class="card-details">
+    <h2 class="card-title">{{ card.characterName }}</h2>
+      <p>A {{card.releaseYear}} {{card.brandName}} {{ card.seriesName }} card of {{ card.characterName }}</p>
+      <p>Category {{card.category}}</p>
+      <p>Description <small>{{card.description}}</small></p>
+  </div>
+</section>
+{% endblock %}
