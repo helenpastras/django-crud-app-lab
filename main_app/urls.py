@@ -1,6 +1,11 @@
-from django.urls import path
+# catcollector/urls.py
+from django.contrib import admin
+from django.urls import path, include
+
 from . import views # Import views to connect routes to view functions
 
 urlpatterns = [
     path('', views.home, name='home'),
+    path('about/', views.about, name='about')
+
 ]
