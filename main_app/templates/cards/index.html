@@ -16,7 +16,7 @@
 <section class="card-container">
   {% for card in cards %}
   <div class="card">
-    <a href="{% url 'card-detail' card.id %}"></a>
+    <a href="{% url 'card-detail' card.id %}">
     <div class="card-content">
       <div class="card-img-container">
         <img
@@ -24,6 +24,7 @@
           alt="There's a snake in my boot"
         />
       </div>
+      </a>
       <h2 class="card-title">{{ card.characterName }}</h2>
       <p>A {{card.releaseYear}} {{card.brandName}} {{ card.seriesName }} card of {{ card.characterName }}</p>
       <p>Category {{card.category}}</p>

@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.contrib.auth.models import User
 
 class Card(models.Model):
@@ -27,3 +28,5 @@ class Card(models.Model):
     def __str__(self):
         return f"{self.characterName} ({self.seriesName})"
     
+    def get_absolute_url(self):
+        return reverse('card-detail', kwargs={'card_id' : self.id})

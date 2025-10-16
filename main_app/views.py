@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+# Add UdpateView & DeleteView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Card
 
 # Create your views here.
@@ -22,3 +24,20 @@ def card_index(request):
 def card_detail(request, card_id):
     card = Card.objects.get(id=card_id)
     return render(request, 'cards/detail.html', {'card': card})
+
+
+# CRUD
+class CardCreate(CreateView):
+    model = Card
+    fields='__all__'
+
+
+class CardUpdate(UpdateView):
+    model = Card
+    fields='__all__'
+
+
+class CardDelete(DeleteView):
+    model = Card
+    success_url = '/cards/'
+

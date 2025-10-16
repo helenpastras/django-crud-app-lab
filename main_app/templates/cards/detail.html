@@ -13,6 +13,11 @@
       <p>A {{card.releaseYear}} {{card.brandName}} {{ card.seriesName }} card of {{ card.characterName }}</p>
       <p>Category {{card.category}}</p>
       <p>Description <small>{{card.description}}</small></p>
+
+      <div class="card-actions">
+        <a href="{% url 'card-update' card.id %}" class="btn warn">Edit</a>
+        <a href="{% url 'card-delete' card.id %}" class="btn danger">Delete</a>
+      </div>
   </div>
 </section>
 {% endblock %}
