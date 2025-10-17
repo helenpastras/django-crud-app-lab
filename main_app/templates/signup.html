@@ -4,17 +4,13 @@
 <link rel="stylesheet" href="{% static 'css/form.css' %}" />
 {% endblock %} 
 {% block content %}
-
 <div class="page-header">
-  {% if card %}
-  <h1>Edit {{card.characterName}}</h1>
-  {% else %}
-  <h1>Add a Card</h1>
-  <img src="{% static 'images/trading-card.png' %}" alt="An icon of a trading card" />
-  {% endif %}
+  <h1>Sign Up</h1>
 </div>
-
-<form action="" method="post" class="form-container">
+{% if error_message %}
+  <p class="red-text">{{ error_message }}</p>
+{% endif %}
+<form action="" method="post" class="form-container" autocomplete="off">
   {% csrf_token %}
   <table>
     {{ form.as_table }}

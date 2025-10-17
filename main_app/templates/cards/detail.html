@@ -6,18 +6,26 @@
 {% block content %}
 <section class="card-container">
   <div class="card-img">
-    <img src="{% static 'images/CardFun-Nemo.jpg' %}" alt="Nemo" />
+    {% if images %}
+      {% for image in images %}
+        <img src="{{ image.image.url }}" alt="Card image of {{ card.characterName }}" />
+      {% endfor %}
+    {% else %}
+      <img src="{% static 'images/CardFun-Nemo.jpg' %}" alt="Nemo" />
+    {% endif %}
   </div>
+
   <div class="card-details">
     <h2 class="card-title">{{ card.characterName }}</h2>
-      <p>A {{card.releaseYear}} {{card.brandName}} {{ card.seriesName }} card of {{ card.characterName }}</p>
-      <p>Category {{card.category}}</p>
-      <p>Description <small>{{card.description}}</small></p>
+    <p>A {{card.releaseYear}} {{card.brandName}} {{ card.seriesName }} card of {{ card.characterName }}</p>
+    <p>Category: {{card.category}}</p>
+    <p>Description: <small>{{card.description}}</small></p>
 
-      <div class="card-actions">
-        <a href="{% url 'card-update' card.id %}" class="btn warn">Edit</a>
-        <a href="{% url 'card-delete' card.id %}" class="btn danger">Delete</a>
-      </div>
+    <div class="card-actions">
+      <a href="{% url 'card-update' card.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'add-card-image' card.id %}" class="btn">Add Image</a>
+      <a href="{% url 'card-delete' card.id %}" class="btn danger">Delete</a>
+    </div>
   </div>
 </section>
 {% endblock %}
