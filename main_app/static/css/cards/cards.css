@@ -1,0 +1,115 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 2rem auto;
+}
+
+input, select, textarea {
+  padding: 0.5em;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.card-details {
+  padding: 2rem;
+  font-size: var(--font-reg);
+  line-height: 1.6;
+}
+
+.card-title {
+  font-size: var(--font-xl);
+  margin-bottom: 1rem;
+}
+
+.card-details p {
+  margin: 0.8rem 0;
+}
+
+.card-actions {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.card-actions .btn {
+  font-size: var(--font-reg);
+  padding: 0.6rem 1.2rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: 300px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.card-img-container img {
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  border-radius: 12px 12px 0 0;
+}
+/* Form layout for card creation/edit */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 50rem;
+  margin: 2rem auto;
+}
+
+input,
+select,
+textarea {
+  padding: 0.8rem;
+  border-radius: var(--card-border-radius);
+  border: 1px solid #ccc;
+  font-size: var(--font-reg);
+  font-family: inherit;
+}
+
+/* Card grid layout */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* Individual card styling */
+.card {
+  background: #fff;
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--card-box-shadow);
+  width: 30rem;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+/* Card image styling */
+.card-img-container img {
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  border-radius: var(--card-border-radius) var(--card-border-radius) 0 0;
+}

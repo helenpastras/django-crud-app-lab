@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/png" href="{% static 'images/CardCollector-logo.png' %}" />
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/cards.css' %}">
     <title>Card Collector</title>
     {% block head %} 
     {% endblock %}
@@ -15,29 +16,26 @@
   <body>
     <header>
       <div class="header-logo-container">
-        <!-- <a href="/">
-          <img src="{% static 'images/CardCollector-logo.png' %}" alt="The Card Collector Logo" />
-        </a> -->
-      </div>
-      <nav>
-        <ul>
-          {% if user.is_authenticated %}
-            <li><a href="{% url 'card-index' %}">All Cards</a></li>
-            <li><a href="{% url 'card-create' %}">Add a Card</a></li>
-            <li><a href="{% url 'about' %}">About</a></li>
-            <li>
-              <form id="logout-form" method="post" action="{% url 'logout' %}">
-                {% csrf_token %}
-                <button type="submit">Log out</button>
-              </form>
-            </li>
-          {% else %}
-            <li><a href="{% url 'about' %}">About</a></li>
-            <li><a href="{% url 'home' %}">Login</a></li>
-            <li><a href="{% url 'signup' %}">Sign Up</a></li>
-          {% endif %}
-        </ul>
-      </nav>
+    <a href="{% url 'home' %}">CardCollector</a>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="{% url 'about' %}">About</a></li>
+      {% if user.is_authenticated %}
+        <li><a href="{% url 'card-index' %}">All Cards</a></li>
+        <li><a href="{% url 'card-create' %}">Add Card</a></li>
+        <li>
+          <form id="logout-form" method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Log out</button>
+          </form>
+        </li>
+      {% else %}
+        <li><a href="{% url 'home' %}">Login</a></li>
+        <li><a href="{% url 'signup' %}">Sign Up</a></li>
+      {% endif %}
+    </ul>
+  </nav>
     </header>
     <main>
      {% block content %} 
