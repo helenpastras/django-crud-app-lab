@@ -19,10 +19,11 @@
     <a href="{% url 'card-detail' card.id %}">
     <div class="card-content">
       <div class="card-img-container">
-        <img
-          src="{% static 'images/toppsChrPxWoody-2025.jpg' %}"
-          alt="There's a snake in my boot"
-        />
+        {% if card.images.all %}
+          <img src="{{ card.images.first.image.url }}" alt="Card image of {{ card.characterName }}" />
+        {% else %}
+          <img src="{% static 'images/trading-card.jpg' %}" alt="Default card image" />
+        {% endif %}
       </div>
       </a>
       <h2 class="card-title">{{ card.characterName }}</h2>

@@ -27,8 +27,12 @@ def card_index(request):
 @login_required
 def card_detail(request, card_id):
     card = get_object_or_404(Card, id=card_id)
-    images = card.images.all()  # thanks to related_name
-    return render(request, 'cards/detail.html', {'card': card, 'images': images})
+    images = card.images.all()  # This pulls all related CardImage objects
+
+    return render(request, 'cards/detail.html', {
+        'card': card,
+        'images': images
+    })
 
 @login_required
 def add_card_image(request, card_id):
@@ -68,7 +72,7 @@ def signup(request):
 class CardCreate(CreateView):
     model = Card
     form_class = CardForm
-    template_name = 'cards/card_form.html'
+    template_name = 'main_app/card_form.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
