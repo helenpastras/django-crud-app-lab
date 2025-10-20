@@ -4,6 +4,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.forms import modelformset_factory
 from .models import Card, CardImage
 from .forms import CardForm, CardImageForm
+from django.contrib.auth import login
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -65,7 +66,7 @@ def signup(request):
     # A bad POST or a GET request, so render signup.html with an empty form
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
-    return render(request, 'signup.html', context)
+    return render(request, 'registration/signup.html', {'form':form})
 
 
 # CRUD
